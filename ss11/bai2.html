@@ -5,8 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-<script>
+<SCRIPT>
+    do {
+        let fatherAge = +prompt("Nhập tuổi cha");
+        let childAge = +prompt("Nhập tuổi con");
+        if (isNaN(fatherAge) === false && isNaN(childAge) === false&&fatherAge>childAge+25 && fatherAge > 0 && childAge > 0) {
+            break;
+        } else {
+            alert("Bạn đã nhập sai vui lòng nhập lại");
+        }
+    } while (true)
+    let years = 0;
 
-</script>
+    while (fatherAge % childAge!==2) {
+        fatherAge++;
+        childAge++;
+        years++;
+
+        if (fatherAge === childAge * 2) {
+            break;
+        }
+    }
+
+    document.write("Sau" + years + "năm nữa, tuổi cha sẽ gấp đôi tuổi con");
+
+
+</SCRIPT>
 </body>
 </html>
