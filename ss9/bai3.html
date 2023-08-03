@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let totalSession= +prompt("Nhập tổng số buổi của module");
+  let absence=+prompt("Nhập số buổi bạn nghỉ");
+  if (absence/totalSession*100>10&& absence/totalSession*100<=20){
+    alert("Bạn bị gửi mail warning");
+  }else if(absence/totalSession*100>20) {
+    alert("Bạn bị buộc chuyển lớp");
+  }else {
+    alert("Số buổi vắng của bạn đang trong tầm cho phép");
+  }
+</script>
+
+</body>
+</html>
