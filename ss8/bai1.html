@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a;
+  let b;
+  let c;
+  do {
+    a=+prompt("Nhập độ dài cạnh 1");
+    b=+prompt("Nhập độ dài cạnh 2");
+    c=+prompt("Nhập độ dài cạnh 3");
+    if (isNaN(a)===false&&isNaN(b)===false&&isNaN(c)===false&&a>0&&b>0&&c>0){
+      break;
+    }else {
+      alert("Nhập sai vui lòng bạn nhập lại")
+    }
+  }while (true)
+  if (a===b&&(a*a)+(b*b)===c*c || a===c&&(a*a)+(c*c)===b*b || (b===c)&&(b*b)+(c*c)===a*a){
+    alert("3 cạnh bạn vừa nhập là 3 cạnh tam giác vuông cân");
+  }else {
+    alert("3 cạnh bạn vừa nhập không phải là 3 cạnh của tam giác vuông cân")
+  }
+</script>
+</body>
+</html>

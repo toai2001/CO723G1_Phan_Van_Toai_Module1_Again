@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label for="Amount">Amount </label>
+<input type="text "id="Amount">
+<br>
+
+<label for="fromcurrency">from curecy</label>
+<select type="select" id="fromcurrency">
+  <option value="VND">VND</option>
+  <option value="USD">USD</option>
+  <option value="JPY">JPY</option>
+  <option value="RMB">RMB</option>
+  <option value="GBP">GPB</option>
+</select>
+
+
+<label for="tocurrency">To Currency</label>
+<select type="select" id="tocurrency">
+  <option value="VND">VND</option>
+  <option value="USD">USD</option>
+  <option value="JPY">JPY</option>
+  <option value="RMB">RMB</option>
+  <option value="GBP">GPB</option>
+</select>
+<br>
+<input type="submit" value="click" onclick="convertMoney()">
+<p id="result"></p>
+<script>
+  function convertMoney() {
+    let amount = parseInt(document.getElementById("Amount").value);
+    let fromcurecy = document.getElementById("fromcurrency").value;
+    let tocurrency = document.getElementById("tocurrency").value;
+
+    if (fromcurecy == "VND" && tocurrency == "USD") {
+      document.getElementById("result").innerHTML = "Kết quả: " + amount/23.75750   + " USD";
+    } else if (fromcurecy == "VND" && tocurrency == "JPY"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount/206 + " JPY";
+    }else if (fromcurecy == "VND" && tocurrency == "RMB"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount/3.32071  + " RMB";
+    }else if (fromcurecy == "VND" && tocurrency == "GBP"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount/30.21265+" GPB";
+    }else if (fromcurecy == "USD" && tocurrency == "VND"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*23.75750  +" VND";
+    }else if (fromcurecy == "USD" && tocurrency == "JPY"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*143.33   +" JPY";
+    }else if (fromcurecy == "USD" && tocurrency == "RMB"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*7.15    +" RMB";
+    }else if (fromcurecy == "USD" && tocurrency == "GBP"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.79     +" GBP";
+    }else if (fromcurecy == "JPY" && tocurrency == "VND"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*165.56       +" VND";
+    }else if (fromcurecy == "JPY" && tocurrency == "USD"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.0070     +" USD";
+    }else if (fromcurecy == "JPY" && tocurrency == "RMB"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.050      +" RMB";
+    }else if (fromcurecy == "JPY" && tocurrency == "GBP"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.0055      +" GBP";
+    }else if (fromcurecy == "RMB" && tocurrency == "GBP"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.11      +" GBP";
+    }else if (fromcurecy == "RMB" && tocurrency == "JPY"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*1.53       +" JPY";
+    }else if (fromcurecy == "RMB" && tocurrency == "USD"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*0.011        +" USD";
+    }else if (fromcurecy == "RMB" && tocurrency == "VND"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*3.311      +" VND";
+    }else if (fromcurecy == "GBP" && tocurrency == "VND"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*30.20303       +" VND";
+    }else if (fromcurecy == "GBP" && tocurrency == "USD"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*1.27       +" USD";
+    }else if (fromcurecy == "GBP" && tocurrency == "JPY"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*182.51        +" JPY";
+    }else if (fromcurecy == "GBP" && tocurrency == "RMB"){
+      document.getElementById("result").innerHTML = "Kết quả: " + amount*9.12       +" RMB";
+    }
+
+  }
+</script>
+
+
+
+</body>
+</html>
