@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    let count;
+    debugger;
+    do {
+        number = +prompt("Nhập số để xem có phải số nguyên tố không");
+        for (let i = 2; i < number-1; i++) {
+            if (number%i==0) {
+                count++;
+            }
+        }
+        if (count===0){
+            alert("Đây là số nguyên tố");
+        }
+    } while (count>0)
+</script>
+</body>
+</html>

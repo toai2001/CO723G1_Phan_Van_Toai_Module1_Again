@@ -5,33 +5,51 @@
     <title>Title</title>
 </head>
 <body>
-<p>How much was your bill</p>
-$ <input type="money" id="money">
-<p>How was your service</p>
-<select id="please_level">
-    <option value="30%">Outstanding: 30%</option>
-    <option value="20%">20%</option>
-    <option value="15%">It was OK: 15%</option>
-    <option value="10%">BAD: 10%</option>
-    <option value="5%">Terrible: 5%</option>
-</select>
-<p>How many people are sharing the bill</p>
-<input type="number"id="people"> people
-<br>
-<input type="submit" value="CALCULATE!" onclick="tinhtien()">
-<p id="result"></p>
+<div>
+    <p>How much was your bill</p>
+    <input type="number" id="money">
+    <p>How was your service</p>
+    <select type="select" id="please_level">
+        <option value="30">Outstanding: 30%</option>
+        <option value="20">Good:20%</option>
+        <option value="15">It was OK: 15%</option>
+        <option value="10">BAD: 10%</option>
+        <option value="5">Terrible: 5%</option>
+    </select>
+    <p>How many people are sharing the bill</p>
+    <input type="number" id="people"> people
+    <br>
+    <br>
+    <br>
 
-</body>
+    <button style="background-color: rgba(250, 42, 42, 0.808); width: 200px; height: 40px; border-radius: 6px ; color: white;" onclick="tinhtien()">CALCULATE!</button>
+    <p id="result"></p>
+
+</div>
+
+
 <script>
     function tinhtien() {
 
 
         let money = parseInt(document.getElementById("money").value);
-        let please_Level = parseInt(document.getElementById("please_level").value);
-        let people_ = parseInt(document.getElementById("people").value);
-        if (please_Level === 30 || please_Level === 20 || please_Level === 15 || please_Level === 10 || please_Level === 5) {
-            document.write("result").innerHTML = money * please_Level / people_;
+        let please_Level = document.getElementById("please_level").value;
+        let people_ = document.getElementById("people").value;
+        if (please_Level == 30) {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 30 / 100 / people_ + "<br>" + "each";
+        } else if (please_Level == 25) {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 25 / 100 / people_ + "<br>" + "each";
+        } else if (please_Level == 20) {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 20 / 100 / people_ + "<br>" + "each";
+        } else if (please_Level == 15) {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 15 / 100 / people_ + "<br>" + "each";
+        } else if (please_Level == 10) {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 10 / 100 / people_ + "<br>" + "each";
+        } else   {
+            document.getElementById("result").innerHTML = "TIP AMOUNT" + "<br>" + money * 5 / 100 / people_ + "<br>" + "each";
         }
     }
+
 </script>
+</body>
 </html>
