@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let leight;
+    let number = [];
+    let evan = [];
+    let odd = [];
+    let sumEvan=0;
+    let sumOdd=0
+    do {
+        leight = +prompt("Nhập độ dài của mảng");
+        for (let i = 0; i < leight; i++) {
+            number[i] = +prompt("Nhập giá trị của mảng " + (i + 1));
+        }
+        if (isNaN(leight) === false && leight > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập độ dài bằng số");
+        }
+    } while (true)
+    console.log(number);
+    for (let i = 1; i < leight; i++) {
+        if (i % 2 === 0) {
+            sumEvan+=number[i]
+            evan.push(number[i]);
+
+        } else {
+            sumOdd+=number[i];
+            odd.push(number[i]);
+        }
+    }
+    console.log(evan);
+    console.log(odd);
+    console.log(sumOdd);
+    console.log(sumEvan);
+</script>
+</body>
+</html>

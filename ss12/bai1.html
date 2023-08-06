@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let leight;
+    let number=[];
+    do {
+        leight = +prompt("Nhập độ dài của mảng");
+        for (let i = 0; i < leight; i++) {
+            number[i] = +prompt("Nhập giá trị của mảng " + (i + 1));
+        }
+        if (isNaN(leight) === false  && leight > 0 ) {
+            break;
+        } else {
+            alert("Vui lòng nhập số");
+        }
+    } while (true)
+    console.log(number);
+    document.write("Giá trị bạn vừa thêm là: " + number)
+    if (leight%2===0){
+        alert("OK");
+    }else {
+        alert("NO");
+    }
+</script>
+</body>
+</html>
