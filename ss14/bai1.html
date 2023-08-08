@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let leight;
+    let arr = [];
+    do {
+        leight = +prompt("Nhập độ dài của mảng");
+        if (isNaN(leight) === false && leight > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập lại bằng số");
+        }
+    } while (true);
+    for (let i = 0; i < leight; i++) {
+        arr[i] = +prompt("Nhập gi trị thứ " + (i + 1) + " của mảng");
+    }
+
+    function number(arr) {
+        let countChan = 0;
+        let countLe = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i]%2===0){
+                countChan++;
+            } else {
+               countLe++;
+            }
+        }
+        if (countChan===arr.length) {
+            return  1;
+        }
+        else if (countLe ===arr.length) {
+            return  0;
+        }else {
+            return -1;
+        }
+    }
+
+    console.log(number(arr))
+</script>
+</body>
+</html>
