@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x;
+    let y;
+    let z;
+
+    do {
+        x = +prompt("Nhập cạnh thứ 1 của tam giác");
+        y = +prompt("Nhập cạnh thứ 2 của tam giác");
+        z = +prompt("Nhập cạnh thứ 3 của tam giác");
+        if (isNaN(x) === false && isNaN(y) === false && isNaN(z) === false) {
+            break;
+        } else {
+            alert("Vui lòng nhập lại 3 cạnh tam giác");
+        }
+    } while (true)
+
+    function checkTriangle(x, y, z) {
+        if (x > 0 && y > 0 && z > 0) {
+            if (x * x + y * y == z * z || x * x + z * z == y * y || z * z + y * y == x * x) {
+                alert("Đây là tam giác vuông");
+            } else if (x + y > z && x + z > y && y + z > x) {
+                alert("Đây là tam giác thường");
+            }else {
+                alert("Đây khoong phải là tam giác");
+            }
+        } else {
+            alert("Đây không phải tam giác vuông");
+        }
+    }
+console.log(checkTriangle(x, y, z))
+</script>
+</body>
+</html>
