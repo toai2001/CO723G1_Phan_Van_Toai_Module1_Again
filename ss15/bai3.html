@@ -6,12 +6,43 @@
 </head>
 <body>
 <script>
+    debugger;
+    let number;
+    do {
+        number = +prompt("Nhập số bất kì");
+        if (isNaN(number) === false) {
+            break;
+        } else {
+            alert("Nhập lại số");
+        }
+    } while (true)
 
-    function number(test) {
-        let number=+prompt("Nhập số");
-        
+    // console.log(number);
+    // number = String(number).split("")
+    // console.log(number);
+
+    function check(number) {
+        let max = 0;
+        let max1 = 0
+        if (number > 1000 && number < 10000) {
+            for (let i = 0; i < number.length; i++) {
+                max1 = Number(number.slice(0, i) + number.slice(i + 1));
+
+            }
+
+        }
+        else
+            {
+                return -1;
+            }
+
 
     }
+
+
+    console.log(check(number))
+
+
 </script>
 </body>
 </html>
