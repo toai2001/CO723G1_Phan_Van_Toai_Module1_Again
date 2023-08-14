@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,28 +7,33 @@
 <body>
 <script>
     let leight;
-    let number=[];
-    let number1=[];
+    let number = [];
+    let number1 = [];
     do {
-        leight=+prompt("Nhập độ dài của mảng");
+        leight = +prompt("Nhập độ dài của mảng");
         for (let i = 0; i < leight; i++) {
-            number[i]=+prompt("Nhập giá trị của mảng "+ (i+1));
+            let x = +prompt("Nhập giá trị của mảng " + (i + 1));
+            if (isNaN(x) === false) {
+                number.push(x);
+            } else {
+                alert("Vui lòng nhập lại giá trị này");
+                i--;
+            }
         }
-        if (isNaN(leight)===false&&leight>0){
+        if (isNaN(leight) === false && leight > 0) {
             break;
-        }
-        else {
+        } else {
             alert("Vui lòng nhập lại")
         }
-    }while (true)
+    } while (true)
+    document.write("Các giá trị bạn vừa thêm là: " + number + "<br>");
     for (let i = 0; i < leight; i++) {
-        if (Math.sqrt(number[i])%1===0){
+        if (Math.sqrt(number[i]) % 1 === 0) {
             number1.push(number[i]);
         }
-        
     }
-    console.log(number)
-    console.log(number1)
+    document.write("Các số chính phương trong số bạn thế là: " + number1);
+
 </script>
 </body>
 </html>

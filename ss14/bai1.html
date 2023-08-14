@@ -10,15 +10,22 @@
     let arr = [];
     do {
         leight = +prompt("Nhập độ dài của mảng");
+        for (let i = 0; i < leight; i++) {
+            let x = +prompt("Nhập gi trị thứ " + (i + 1) + " của mảng");
+            if (isNaN(x)===false){
+                arr.push(x);
+            }else {
+                alert("Vui lòng nhập lại giá trị này của mảng");
+                i--;
+            }
+        }
+
         if (isNaN(leight) === false && leight > 0) {
             break;
         } else {
             alert("Vui lòng nhập lại bằng số");
         }
     } while (true);
-    for (let i = 0; i < leight; i++) {
-        arr[i] = +prompt("Nhập gi trị thứ " + (i + 1) + " của mảng");
-    }
 
     function number(arr) {
         let countChan = 0;

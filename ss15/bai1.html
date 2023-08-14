@@ -10,15 +10,22 @@
     let number = [];
     do {
         leight = +prompt("Nhập độ dài của mảng");
+        for (let i = 0; i < leight; i++) {
+            let x = +prompt("Nhập giá trị thứ " + (i + 1) + " của mảng");
+            if (isNaN(x)===false){
+                number.push(x);
+            }else {
+                alert("Vui lòng nhập lại giá trị này của mảng");
+                i--;
+            }
+        }
         if (isNaN(leight) === false && leight > 0) {
             break;
         } else {
             alert("Vui lòng nhập lại");
         }
     } while (true);
-    for (let i = 0; i < leight; i++) {
-        number[i] = +prompt("Nhập giá trị thứ " + (i + 1) + " của mảng");
-    }
+
     let result = true
     let sum = number[1] - number[0];
     debugger;

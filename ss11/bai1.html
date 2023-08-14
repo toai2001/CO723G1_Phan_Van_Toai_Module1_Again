@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let leight;
+    do {
+        leight = +prompt("Nhập độ dài của mảng");
+
+        for (let i = 0; i < leight; i++) {
+            let x = +prompt("Nhập giá trị thứ " + (i + 1) + " của mảng");
+            if (isNaN(x)===false) {
+                arr.push(x);
+            } else {
+                alert("Vui lòng nhập lại giá trị này");
+                i--;
+            }
+        }
+        if (isNaN(leight) === false && leight > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập bằng số");
+        }
+
+    } while (true)
+    document.write("Mảng bạn vừa nhập là "+ arr+"<br>");
+    arr.sort((a,b) => b-a);
+    document.write("Số lớn thứ 2 trong mảng là: "+ arr[1])
+</script>
+</body>
+</html>

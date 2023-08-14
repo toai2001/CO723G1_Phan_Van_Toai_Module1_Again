@@ -11,7 +11,13 @@
     do {
         leight = +prompt("Nhập độ dài của mảng");
         for (let i = 0; i < leight; i++) {
-            number[i] = +prompt("Nhập giá trị của mảng " + (i + 1));
+            let x = +prompt("Nhập giá trị của mảng " + (i + 1));
+            if (isNaN(x)===false){
+                number.push(x);
+            }else {
+                alert("Vui lòng nhập lại giá trị");
+                i--;
+            }
         }
         if (isNaN(leight) === false  && leight > 0 ) {
             break;
@@ -19,7 +25,6 @@
             alert("Vui lòng nhập số");
         }
     } while (true)
-    console.log(number);
     document.write("Giá trị bạn vừa thêm là: " + number)
     if (leight%2===0){
         alert("OK");

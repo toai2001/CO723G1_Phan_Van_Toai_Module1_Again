@@ -8,14 +8,17 @@
 <script>
     let leight;
     let number = [];
-    let evan = [];
-    let odd = [];
-    let sumEvan=0;
-    let sumOdd=0
+    let sum = 0;
     do {
         leight = +prompt("Nhập độ dài của mảng");
         for (let i = 0; i < leight; i++) {
-            number[i] = +prompt("Nhập giá trị của mảng " + (i + 1));
+            let x = +prompt("Nhập giá trị của mảng " + (i + 1));
+            if (isNaN(x) === false) {
+                number.push(x);
+            } else {
+                alert("Vui lòng nhập lại giá trị này");
+                i--;
+            }
         }
         if (isNaN(leight) === false && leight > 0) {
             break;
@@ -23,21 +26,14 @@
             alert("Vui lòng nhập độ dài bằng số");
         }
     } while (true)
-    console.log(number);
+    document.write("Mảng của bạn vừa nhập là " + number + "<br>");
     for (let i = 1; i < leight; i++) {
-        if (i % 2 === 0) {
-            sumEvan+=number[i]
-            evan.push(number[i]);
-
-        } else {
-            sumOdd+=number[i];
-            odd.push(number[i]);
+        if (i % 2 !== 0 && number[i] % 2 === 0) {
+            sum += number[i];
         }
     }
-    console.log(evan);
-    console.log(odd);
-    console.log(sumOdd);
-    console.log(sumEvan);
+    document.write("Tổng các giá trị chẵn ở vị trí lẻ là: " + sum + "<br>");
+
 </script>
 </body>
 </html>
