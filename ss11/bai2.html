@@ -9,29 +9,29 @@
 
 <body>
 <script>
-    let son;
+    let bon;
     let dad;
     let year = 0
     debugger
     do {
         do {
-            son = +prompt("Nhập vào tuổi con");
+            bon = +prompt("Nhập vào tuổi con");
             dad = +prompt("Nhập vào tuổi cha");
-            if (isNaN(son)===false&&isNaN(dad)===false&&son>0&&dad>0){
+            if (isNaN(bon)===false&&isNaN(dad)===false&&bon>0&&dad>0){
                 break;
             }else {
                 alert("Vui lòng nhập tuổi bằng sô");
             }
         }while (true)
-        if (son > (dad - 25)&&isNaN(son)) {
+        if (bon > (dad - 25)&&isNaN(bon)) {
             alert("Tuổi cha phải lớn hơn tuổi con ít nhất là 25 tuổi");
         } else
             break;
-    } while (son > (dad - 25))
+    } while (bon > (dad - 25))
     debugger
-    while (dad > son * 2) {
+    while (dad > bon * 2) {
         dad = dad + 1;
-        son = son + 1;
+        bon = bon + 1;
         year  = year  + 1;
     }
     alert("Tuổi cha gấp đôi tuổi con sau " + year  + " năm");

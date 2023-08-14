@@ -6,41 +6,60 @@
 </head>
 <body>
 <script>
-    debugger;
-    let number;
-    do {
-        number = +prompt("Nhập số bất kì");
-        if (isNaN(number) === false) {
-            break;
-        } else {
-            alert("Nhập lại số");
-        }
-    } while (true)
+    // debugger;
+    // let number;
+    // do {
+    //     number = +prompt("Nhập số bất kì");
+    //     if (isNaN(number) === false) {
+    //         break;
+    //     } else {
+    //         alert("Nhập lại số");
+    //     }
+    // } while (true)
+    //
+    // // console.log(number);
+    // // number = String(number).split("")
+    // // console.log(number);
+    //
+    // function check(number) {
+    //     let max = 0;
+    //     let max1 = 0
+    //     if (number > 1000 && number < 10000) {
+    //         for (let i = 0; i < number.length; i++) {
+    //             max1 = Number(number.slice(0, i) + number.slice(i + 1));
+    //
+    //         }
+    //
+    //     }
+    //     else
+    //         {
+    //             return -1;
+    //         }
+    //
+    //
+    // }
+    //
+    //
+    // console.log(check(number))
 
-    // console.log(number);
-    // number = String(number).split("")
-    // console.log(number);
+    number = 9371;
 
-    function check(number) {
+    function findMaxNumber(number) {
         let max = 0;
-        let max1 = 0
-        if (number > 1000 && number < 10000) {
-            for (let i = 0; i < number.length; i++) {
-                max1 = Number(number.slice(0, i) + number.slice(i + 1));
-
+        let current;
+        number = number.toString();
+        console.log(number);
+        for (let i = 0; i < number.length; i++) {
+            current = Number(number.slice(0, i) + number.slice(i + 1));
+            if (max < current) {
+                max = current;
             }
-
+            console.log(current);
         }
-        else
-            {
-                return -1;
-            }
-
-
+        console.log("Max: "+max);
     }
 
-
-    console.log(check(number))
+    findMaxNumber(number);
 
 
 </script>
