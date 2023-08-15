@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #333333;
+      text-align: center;
+    }
+
+    {
+      width: 100%
+    ;
+      border-collapse: collapse
+    ;
+      margin-bottom: 20px
+    ;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #cccccc;
+    }
+
+    form {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #fdc702;
+      color: #0c0c0c;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #f62103;
+    }
+    /* chat gpt làm style
+  </style>
+</head>
+<body>
+
+<h1>Danh sách tài khoản</h1>
+<table id="accountTable">
+  <tr>
+    <th>Số tài khoản</th>
+    <th>Tên tài khoản</th>
+    <th>Số dư</th>
+  </tr>
+</table>
+
+<h2>Thêm tài khoản mới</h2>
+<form>
+  <label for="accountNumber">Số tài khoản:</label>
+  <input type="text" id="accountNumber" required><br>
+  <label for="accountName">Tên tài khoản:</label>
+  <input type="text" id="accountName" required><br>
+  <label for="balance">Số dư:</label>
+  <input type="number" id="balance" required><br>
+  <button type="button" onclick="addAccount()">Thêm tài khoản</button>
+</form>
+
+<h2>Gửi/Rút tiền</h2>
+<form>
+  <label for="selectedAccount">Chọn tài khoản:</label>
+  <select id="selectedAccount">
+
+  </select><br>
+  <label for="amount">Số tiền:</label>
+  <input type="number" id="amount" required><br>
+  <button type="button" onclick="addMoney()">Gửi tiền</button>
+  <button type="button" onclick="withdrawMoney()">Rút tiền</button>
+  <button type="button" onclick="deleteAccount()">Xóa tài khoản</button>
+</form>
+
+<script>
+  class Account {
+    constructor(accountNumber, accountName, balance) {
+      this.accountNumber = accountNumber;
+      this.accountName = accountName;
+      this.balance = balance;
+    }
+
+    getAccountNumber() {
+      return this.accountNumber;
+    }
+
+    getAccountName() {
+      return this.accountName;
+    }
+
+    getBalance() {
+      return this.balance;
+    }
+
+    setAccountNumber(accountNumber) {
+      this.accountNumber = accountNumber;
+    }
+
+    setAccountName(accountName) {
+      this.accountName = accountName;
+    }
+
+    setBalance(balance) {
+      this.balance = balance;
+    }
+
+    toString() {
+      return `Account Number: ${this.accountNumber}\nAccount Name: ${this.accountName}\nBalance: ${this.balance}`;
+    }
+
+    deposit(amount) {
+      this.balance += amount;
+    }
+
+    withdraw(amount) {
+      if (this.balance > 0 && this.balance >= amount) {
+        this.balance -= amount;
+      } else {
+        alert("Số dư không đủ để thực hiện giao dịch");
+      }
+    }
+  }
+
+  let accounts = [];
+
+  function addAccount() {
+    let accountNumber = document.getElementById("accountNumber").value;
+    let accountName = document.getElementById("accountName").value;
+    let balance = parseFloat(document.getElementById("balance").value);
+    let newAccount = new Account(accountNumber, accountName, balance);
+    accounts.push(newAccount);
+    displayAccounts();
+    updateAccountDropdown();
+    clearInputs();
+  }
+
+  function displayAccounts() {
+    let table = document.getElementById("accountTable");
+    while (table.rows.length > 1) {
+      table.deleteRow(1);
+    }
+    for (let i = 0; i < accounts.length; i++) {
+      let row = table.insertRow(i + 1);
+      let accountNumberCell = row.insertCell(0);
+      let accountNameCell = row.insertCell(1);
+      let balanceCell = row.insertCell(2);
+      accountNumberCell.innerHTML = accounts[i].getAccountNumber();
+      accountNameCell.innerHTML = accounts[i].getAccountName();
+      balanceCell.innerHTML = accounts[i].getBalance();
+    }
+  }
+
+  function updateAccountDropdown() {
+    let selectElement = document.getElementById("selectedAccount");
+    selectElement.innerHTML = "";
+    for (let i = 0; i < accounts.length; i++) {
+      let option = document.createElement("option");
+      option.value = i;
+      option.text = accounts[i].getAccountNumber();
+      selectElement.appendChild(option);
+    }
+  }
+
+  function addMoney() {
+    let selectedIndex = document.getElementById("selectedAccount").value;
+    let amount = parseFloat(document.getElementById("amount").value);
+    accounts[selectedIndex].deposit(amount);
+    displayAccounts();
+    clearInputs();
+  }
+
+  function withdrawMoney() {
+    let selectedIndex = document.getElementById("selectedAccount").value;
+    let amount = parseFloat(document.getElementById("amount").value);
+    accounts[selectedIndex].withdraw(amount);
+    displayAccounts();
+    clearInputs();
+  }
+
+  function clearInputs() {
+    document.getElementById("accountNumber").value = "";
+    document.getElementById("accountName").value = "";
+    document.getElementById("balance").value = "";
+  }
+  function deleteAccount() {
+    let selectedIndex = document.getElementById("selectedAccount").value;
+    accounts.splice(selectedIndex, 1);
+    displayAccounts();
+    updateAccountDropdown();
+    clearInputs();
+  }
+</script>
+</body>
+</html>

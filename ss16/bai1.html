@@ -9,16 +9,52 @@
 <div id="display"></div>
 <br>
 <button onclick="recharge" id="recharge"> Nạp tiền</button>
-<button onclick=""></button>
+<button onclick="addStk" id="addStk">Thêm tài khoản mới</button>
+<button onclick="deleStk" id="deleStk"> Xóa tài khoản </button>
+<button onclick="withdraw" id="withdraw">Rút tiền</button>
 
 <script>
     class ACB {
-        constructor(stk,name,money) {
+        constructor(stk,name,email,numberPhone,birthDay,money) {
             this.stk=stk;
             this.name=name;
+            this.email=email;
+            this.numberPhone=numberPhone;
+            this.birthDay=birthDay;
             this.money=money;
         }
     }
+        let acb1 = new ACB("20230003","Trần Thanh Ngân","Thanhngan@gmail.com","0123456789","18/05/2002","10000000");
+        let acb2 = new ACB("20230002","Phạm Phương Thảo","Phuongthao@gmail.com","0987654321","23/09/2001","5000000");
+        let acb3 = new ACB("20230001","Phạm Xuân Hoàng","Hoanghanh@gmail.com","0857492865","29/2/1976","100000000");
+        let acb=[acb3,acb2,acb1];
+        display(acb);
+    function display(arr) {
+        let table="<table border='1' style='border-collapse: collapse'>"+
+            "<tr>" +
+            "<th>Số tài khoản</th>" +
+            "<th>Tên</th>" +
+            "<th>Email</th>" +
+            "<th>Số Điện thoại</th>" +
+            "<th>Ngày tháng năm sinh</th>" +
+            "<th>Số dư</th>"+
+            "</tr>";
+        for (let i = 0; i < arr.length; i++) {
+            table += "<tr>" +
+                "<td>" + arr[i].stk + "</td>" +
+                "<td>" + arr[i].name + "</td>" +
+                "<td>" + arr[i].email + "</td>" +
+                "<td>" + arr[i].numberPhone + "</td>" +
+                "<td>" + arr[i].birthDay + "</td>" +
+                "<td>" + arr[i].money + "</td>" +
+                "</tr>"
+        }
+        table+="</table>"
+        document.getElementById("display").innerHTML=table;
+    }
+    function recharge() {
+    }
+
 
 </script>
 </body>
