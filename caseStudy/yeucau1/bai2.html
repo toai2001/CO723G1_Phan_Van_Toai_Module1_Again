@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let check;
+    do {
+        check = prompt("Nhập kí tự bạn muốn kiểm tra");
+        if (check.length < 2 && isNaN(check) === true) {
+            if (check === "u" || check === "e" || check === "o" || check === "a" || check === "i" ||
+                check === "U" || check === "E" || check === "O" || check === "A" || check === "I") {
+                alert("Kí tự bạn nhập là nguyên âm");
+                break;
+            } else if (check === "b" || check === "c" || check === "d" || check === "f" || check === "g" || check === "h" ||
+                check === "j" || check === "k" || check === "l" || check === "m" || check === "n" ||
+                check === "p" || check === "q" || check === "r" || check === "s" || check === "t" || check === "v" ||
+                check === "w" || check === "x" || check === "y" || check === "z" || check === "B" || check === "C" ||
+                check === "D" || check === "F" || check === "G" || check === "H" || check === "J" || check === "K" ||
+                check === "L" || check === "M" || check === "N" || check === "P" || check === "Q" || check === "R" ||
+                check === "S" || check === "T" || check === "V" || check === "W" || check === "X" || check === "Y" || check === "Z") {
+                alert("Kí tự bạn nhập là phụ âm");
+                break;
+            } else {
+                alert("Kí tự bạn nhập không phải là nguyên âm cũng không phải phụ âm");
+                break;
+            }
+        } else {
+            alert("Vui lòng nhập kí tự đơn trong bảng chữ cái tiếng anh ");
+        }
+    } while (true)
+
+</script>
+</body>
+</html>

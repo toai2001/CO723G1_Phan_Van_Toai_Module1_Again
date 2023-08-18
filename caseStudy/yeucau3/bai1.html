@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let leight;
+    let arr1 = [];
+    let sum = 0;
+    do {
+        leight = +prompt("Nhập độ dài của mảng");
+        for (let i = 0; i < leight; i++) {
+            let x = +prompt("Nhập giá trị thứ " + (i + 1) + " của mảng");
+            if (isNaN(x) === false) {
+                arr.push(x);
+            } else {
+                alert("Nhập lại giá trị này của mảng bằng số");
+                i--;
+            }
+        }
+        if (isNaN(leight) === false && leight > 0) {
+            break;
+        } else {
+            alert("Nhập lại độ dài của mảng bằng số");
+        }
+    } while (true)
+    for (let i = 0; i < leight; i++) {
+        sum += arr[i];
+        arr1.push(sum);
+    }
+    document.write(arr + "<br>");
+    document.write(arr1);
+
+</script>
+</body>
+</html>

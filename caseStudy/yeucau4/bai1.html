@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập 1 chuỗi vào ");
+    document.write("Chuỗi bạn vừa nhập vào: " + str);
+    str = str.split(' ');
+    // console.log(str);
+
+    let arr = [];
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] !== "") {
+            arr.push(str[i]);
+        }
+    }
+    // let string = arr.join(" ");
+    // console.log(arr);
+    // console.log(string);
+    let maxStr = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (maxStr.length < (arr[i].length)) {
+            maxStr = arr[i];
+        }
+    }
+    console.log({arr});
+    let arrNew = [];
+    for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+        console.log({element})
+        let tempArr = new Array(element.length)
+        for (let j = 0; j < element.length; j++) {
+            tempArr[j] = element[j];
+        }
+        tempArr[0] = tempArr[0].toUpperCase();
+        console.log(tempArr)
+        for (let j = 0; j < tempArr.length; j++) {
+            arrNew.push(tempArr[j])
+        }
+        arrNew.push(' ')
+    }
+    console.log(arrNew.join(''));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 style="text-align: center">
+    <details>
+        <summary>Menu quán nước</summary>
+        <p>1.Cafe</p>
+        <p>2.Cam Vắt</p>
+        <p>3.Nước ép cà rốt</p>
+        <p>4.Nước ép cà chua</p>
+        <p>5.Nước lọc</p>
+        <p>6.Nước dừa</p>
+        <p>7.Thoát gọi món</p>
+        <button onclick="oder()">Mua Nước</button>
+    </details>
+</h2>
+<script>
+    function oder() {
+        let number = [1, 2, 3, 4, 5, 6];
+        let money = [15, 20, 20, 20, 5, 30];
+        let numberOf = 0;
+        let drink;
+        let sum = 0;
+        let sumAll = 0;
+        do {
+            drink = +prompt("Nhập số để có thẻ oder nước");
+            for (let i = 0; i < number.length; i++) {
+                if (drink === number[i]) {
+                    numberOf = +prompt("Bạn muốn mua mấy ly");
+                    sum = money[i] * numberOf;
+                    alert("Tiền bạn cần phải trả là: " + sum + "k ")
+                    sumAll += sum;
+                }
+            }
+            if (drink === 7) {
+                let x = confirm("Bạn không muốn gọi nước?");
+                if (x === true) {
+                    alert("Tổng tền bạn cần phải thanh toán là " + sumAll + "k");
+                    break;
+                } else {
+                    continue;
+                }
+
+            }
+            if (drink > 7 || drink < 1 || isNaN(drink) === true) {
+                alert("Vui lòng nhập số trong menu");
+            }
+        } while (true)
+    }
+
+
+</script>
+</body>
+</html>

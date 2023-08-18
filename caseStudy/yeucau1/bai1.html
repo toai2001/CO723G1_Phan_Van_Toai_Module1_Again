@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let wage;
+    do {
+        wage = +prompt("Nhập lương của bạn");
+        if (isNaN(wage) === false && wage > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập lương của bạn bằng số");
+        }
+    } while (true)
+    if (wage >= 15000000) {
+        document.write("Tiền lương của bạn nhận được sau khi đóng thuế là: " + (wage - wage * 20 / 100) + " VNĐ");
+    } else if (wage >= 7000000) {
+        document.write("Tiền lương của bạn nhận được sau khi đóng thuế là: " + (wage - wage * 10 / 100) + " VNĐ");
+
+    } else {
+        document.write("Tiền lương của bạn nhận được sau khi đóng thuế là: " + (wage - wage * 5 / 100) + " VNĐ");
+    }
+</script>
+</body>
+</html>

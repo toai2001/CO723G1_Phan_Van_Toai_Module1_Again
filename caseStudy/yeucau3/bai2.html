@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let arr1 = [];
+    let arr2 = [];
+    let leight1;
+    let leight2;
+    do {
+        leight1 = +prompt("Nhập độ dài cảu mảng thứ nhất");
+        for (let i = 0; i < leight1; i++) {
+            let x = +prompt("Giá trị thứ " + (i + 1) + " của mảng thứ nhất là:")
+            if (isNaN(x) === false) {
+                arr1.push(x);
+            } else {
+                alert("Vui lòng nhập lại giá trị này bằng số ");
+                i--;
+            }
+
+        }
+        leight2 = +prompt("Nhập độ dài cuủa mảng thứ 2");
+        for (let i = 0; i < leight2; i++) {
+            let y = +prompt("Nhập giá trị thứ " + (i + 1) + " của mảng thứ 2 là:");
+            if (isNaN(y) === false) {
+                arr2.push(y);
+            } else {
+                alert("Nhập lại giá trị này bằng số");
+            }
+        }
+        if (isNaN(leight1) === false && isNaN(leight2) === false && leight1 > 0 && leight2 > 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập độ dài cảu mảng bằng số");
+        }
+    } while (true)
+    for (let i = 0; i < leight2; i++) {
+        if (!arr1.includes(arr2[i]) && !arr.includes(arr2[i])) {
+            arr.push(arr2[i]);
+        }
+    }
+    console.log(arr);
+    console.log(arr1);
+    console.log(arr2);
+    ty
+</script>
+</body>
+</html>
