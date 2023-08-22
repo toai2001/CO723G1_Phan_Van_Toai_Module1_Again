@@ -1,61 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-<h1> Kho lưu trữ ngân hàng ACB</h1>
-<div id="display"></div>
-<br>
-<button onclick="recharge" id="recharge"> Nạp tiền</button>
-<button onclick="addStk" id="addStk">Thêm tài khoản mới</button>
-<button onclick="deleStk" id="deleStk"> Xóa tài khoản </button>
-<button onclick="withdraw" id="withdraw">Rút tiền</button>
-
+<button id="add" onclick="addMoney()">Nạp tiền</button>
+<button id="take" onclick="withdraw()">Rút tiền</button>
+<br><br>
+<div id="table"></div>
 <script>
-    class ACB {
-        constructor(stk,name,email,numberPhone,birthDay,money) {
-            this.stk=stk;
-            this.name=name;
-            this.email=email;
-            this.numberPhone=numberPhone;
-            this.birthDay=birthDay;
-            this.money=money;
+    class Account {
+        constructor(number, name, money) {
+            this.number = number;
+            this.name = name;
+            this.money = money;
         }
-    }
-        let acb1 = new ACB("20230003","Trần Thanh Ngân","Thanhngan@gmail.com","0123456789","18/05/2002","10000000");
-        let acb2 = new ACB("20230002","Phạm Phương Thảo","Phuongthao@gmail.com","0987654321","23/09/2001","5000000");
-        let acb3 = new ACB("20230001","Phạm Xuân Hoàng","Hoanghanh@gmail.com","0857492865","29/2/1976","100000000");
-        let acb=[acb3,acb2,acb1];
-        display(acb);
-    function display(arr) {
-        let table="<table border='1' style='border-collapse: collapse'>"+
-            "<tr>" +
-            "<th>Số tài khoản</th>" +
-            "<th>Tên</th>" +
-            "<th>Email</th>" +
-            "<th>Số Điện thoại</th>" +
-            "<th>Ngày tháng năm sinh</th>" +
-            "<th>Số dư</th>"+
-            "</tr>";
-        for (let i = 0; i < arr.length; i++) {
-            table += "<tr>" +
-                "<td>" + arr[i].stk + "</td>" +
-                "<td>" + arr[i].name + "</td>" +
-                "<td>" + arr[i].email + "</td>" +
-                "<td>" + arr[i].numberPhone + "</td>" +
-                "<td>" + arr[i].birthDay + "</td>" +
-                "<td>" + arr[i].money + "</td>" +
-                "</tr>"
+
+        getName() {
+            return this.name;
         }
-        table+="</table>"
-        document.getElementById("display").innerHTML=table;
-    }
-    function recharge() {
+
+        getNumber() {
+            return this.number;
+        }
+
+        getMoney() {
+            return this.money;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setNumber(number) {
+            this.number = number;
+        }
+
+        setMoney(money) {
+            this.money = money;
+        }
+
+        toString() {
+            return "account: " + this.number + "name account: " + this.name + "so du: " + this.money;
+        }
+
+        deposit(money) {
+            this.money += money;
+        }
+
+        withdraw(money) {
+            if (this.money >= money) {
+                this.money -= money;
+            } else {
+                alert("Ko đủ số dư ");
+            }
+        }
     }
 
+    let account1 = new Account('001', 'PHAM PHUONG THAO', 100000);
+    let account2 = new Account('002', 'TRNA THANH NGAN', 200000);
+    let account3 = new Account('003', 'LE VIET HUYEN', 300000);
+    let accountList = [];
+    accountList.push(account1, account2, account3);
+    displayAccountList(accountList);
+
+    function displayAccountList(accountList) {
+        let table = "<table border='1px' style='border-collapse: collapse'>" +
+            "<tr>" +
+            "<th>STT</th>" +
+            "<th>So tai khoan</th>" +
+            "<th>Ten tai khoan</th>" +
+            "<th>Tien trong tai khoan</th>" +
+            "</tr>"
+        for (let i = 0; i < accountList.length; i++) {
+            table += "<tr>" +
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + accountList[i].number + "</td>" +
+                "<td>" + accountList[i].name + "</td>" +
+                "<td>" + accountList[i].money + "</td>" +
+                "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("table").innerHTML = table;
+    }
+
+    function addMoney() {
+        debugger
+        let id = prompt('Nhập số tài khoản cần nạp tiền');
+        let money = +prompt('Nhập số tiền cần nạp');
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                accountList[i].money += money;
+                alert("Nạp xiền thành công");
+                break;
+            } else {
+                alert("Số tài khoản không hợp lệ ");
+                break;
+            }
+        }
+        displayAccountList(accountList);
+    }
+
+    function withdraw() {
+        debugger
+        let id = prompt('Nhập số tài khoản cần rút tiền');
+        let money;
+        let flag = false;
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                money = +prompt('Nhập số tiền cần rút');
+                alert('Số dư trong tài khoản ' + id + " là: " + accountList[i].money);
+                if (accountList[i].money > 0 && accountList[i].money >= money) {
+                    confirm('Bạn có muốn rút ' + money + ' VND trong tài khoản ' + accountList[i].number + ' không??')
+                    accountList[i].money -= money;
+                    alert("Rút xiền thành công ");
+                    flag = true;
+                } else {
+                    alert('Tiền trong tài khoản bé hơn số tiền muốn rút');
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if (flag === false) {
+            alert('Số tài khoản không tồn tại');
+        }
+        displayAccountList(accountList);
+    }
 
 </script>
 </body>
+
 </html>
