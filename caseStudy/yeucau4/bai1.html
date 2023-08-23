@@ -7,42 +7,51 @@
 <body>
 <script>
     let str = prompt("Nhập 1 chuỗi vào ");
-    document.write("Chuỗi bạn vừa nhập vào: " + str);
-        str = str.split(' ');
-        // console.log(str);
-
+    console.log("Chuỗi bạn vừa nhập vào: " + str + "<br>");
+    str = str.split(" ");
     let arr = [];
     for (let i = 0; i < str.length; i++) {
         if (str[i] !== "") {
             arr.push(str[i]);
         }
     }
-    // let string = arr.join(" ");
-    // console.log(arr);
-    // console.log(string);
     let maxStr = arr[0];
     for (let i = 1; i < arr.length; i++) {
         if (maxStr.length < (arr[i].length)) {
             maxStr = arr[i];
         }
     }
-    console.log({arr});
-    let arrNew = [];
+    debugger;
+    let result = [];
     for (let i = 0; i < arr.length; i++) {
-        let element = arr[i];
-        console.log({element})
-        let tempArr = new Array(element.length)
-        for (let j = 0; j < element.length; j++) {
-            tempArr[j] = element[j];
+        for (let j = 0; j < arr[i].length; j++) {
+            if (j === 0) {
+                result += (arr[i][j].toUpperCase())
+            } else {
+                result += (arr[i][j].toLowerCase())
+            }
         }
-        tempArr[0] = tempArr[0].toUpperCase();
-        console.log(tempArr)
-        for (let j = 0; j < tempArr.length; j++) {
-            arrNew.push(tempArr[j])
-        }
-        arrNew.push(' ')
+        result += " ";
     }
-    console.log(arrNew.join(''));
+    console.log("Chuỗi bạn nhập dài nhất là: " + maxStr + "<br>");
+    console.log("Chuỗi sau khi chuẩn hóa là: " + result);
+    // console.log({arr});
+    // let arrNew = [];
+    // for (let i = 0; i < arr.length; i++) {
+    //     let element = arr[i];
+    //     console.log({element})
+    //     let tempArr = new Array(element.length)
+    //     for (let j = 0; j < element.length; j++) {
+    //         tempArr[j] = element[j];
+    //     }
+    //     tempArr[0] = tempArr[0].toUpperCase();
+    //     console.log(tempArr)
+    //     for (let j = 0; j < tempArr.length; j++) {
+    //         arrNew.push(tempArr[j])
+    //     }
+    //     arrNew.push(' ')
+    // }
+    // console.log(arrNew.join(''));
 
 </script>
 </body>

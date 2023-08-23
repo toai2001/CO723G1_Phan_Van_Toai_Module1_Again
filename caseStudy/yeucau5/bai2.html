@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m;
+    let n;
+    let number = [];
+    do {
+        m = +prompt("Nhập hàng");
+        n = +prompt("Nhập số phân tử");
+        for (let i = 0; i < m; i++) {
+            number[i] = [];
+            for (let j = 0; j < n; j++) {
+                let x = +prompt("Nhập giá trị thứ " + (j + 1) + " của hàng " + (i + 1));
+                if (isNaN(x) === false) {
+                    number[i][j] = x;
+                } else {
+                    alert("Vui lòng nhập giá trị bằng số ");
+                    j--;
+                }
+            }
+        }
+        if (isNaN(m) === false && isNaN(n) === false && m > 0 && n > 0) {
+            break;
+        } else {
+            alert("vui lòng nhập hàng và số phần tử bằng số");
+        }
+    } while (true)
+
+    let soNguyenTo = [];
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            let count = 0;
+            if (number[i][j] === 2) {
+                soNguyenTo.push(number[i][j]);
+            } else {
+                for (let k = 2; k < number[i][j]; k++) {
+                    if (number[i][j] % k === 0) {
+                        count++
+                    }
+                }
+                if (count === 0 && number[i][j] !== 1) {
+                    soNguyenTo.push(number[i][j]);
+                }
+            }
+        }
+    }
+    console.log(soNguyenTo)
+    console.log(number)
+</script>
+</body>
+</html>

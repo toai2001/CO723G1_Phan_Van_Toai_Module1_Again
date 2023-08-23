@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sohangM;
+    let soPhanTuN;
+    let number = [];
+    let sum = 0;
+    do {
+        sohangM = +prompt("Nhập số hàng m");
+        soPhanTuN = +prompt("Nhập số phần tử n");
+        for (let i = 0; i < sohangM; i++) {
+            number[i] = [];
+            for (let j = 0; j < soPhanTuN; j++) {
+                let x = +prompt("Nhập giá trị thứ " + (j + 1) + " của hàng " + (i + 1));
+                if (isNaN(x) === false) {
+                    number[i][j] = x;
+                } else {
+                    alert("Vui lòng nhập giá trị bằng số");
+                    j--;
+                }
+            }
+        }
+        if (isNaN(sohangM) === false && isNaN(soPhanTuN) === false && sohangM > 0 && soPhanTuN > 0) {
+            break;
+        } else {
+            alert("Nhập lại số hàng và số phần tử bằng số");
+        }
+    } while (true)
+    console.log(number);
+    for (let i = 0; i < sohangM; i++) {
+        for (let j = 0; j < soPhanTuN; j++) {
+            if (number[i][j] % 2 === 0) {
+                sum += number[i][j];
+            }
+        }
+    }
+    console.log(sum);
+</script>
+</body>
+</html>
