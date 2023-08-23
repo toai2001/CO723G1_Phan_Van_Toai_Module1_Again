@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  do {
+    let height = +prompt("Nhập chiều cao của tam giác: ");
+    if (height > 0 && isNaN(height) === false) {
+      for (let i = 1; i <= height; i++) {
+        for (let j = 1; j <= height + i - 1; j++) {
+          if (j <= height - i) {
+            document.write("&nbsp&nbsp");
+          } else {
+            document.write("*");
+          }
+        }
+        document.write("<br/>");
+      }
+      break;
+    } else {
+      alert("Vui lòng nhập đúng chiều cao!")
+    }
+  } while (true)
+</script>
+</body>
+</html>
