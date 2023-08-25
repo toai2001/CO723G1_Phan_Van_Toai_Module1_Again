@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h2>Danh sách học viên</h2>
+<div id="display"></div>
+<button onclick="addStudent()">Thêm học viên</button>
+<button onclick="editStudent()"> Sử Thông tin</button>
+<button onclick="deleteStudent()">Xóa học viên</button>
+<script>
+  class student {
+    constructor(id, name, clasroom, email, birthday) {
+      this.id = id;
+      this.name = name;
+      this.clasroom = clasroom;
+      this.email = email;
+      this.birthday = birthday;
+    }
+
+  }
+
+  let student3 = new student(230003, "Trần Thanh Ngân", "5", "tranthanhngan@gmail.com", "18/05/2002");
+  let student2 = new student(230002, "Phan Thị Phương Anh", "4", "phuonganh@gmail.com", "20/01/2001");
+  let student1 = new student(230001, "Nguyễn Tất Quyền", "7", "quyendeptrai@gmail.com", "30/12/2002");
+  let studen = [student3, student2, student1];
+  display(studen);
+
+  function display(arr) {
+    let table = "<table border='1' style='border-collapse: collapse'>" +
+            "<tr>" +
+            "<th>Mã học viên</th>" +
+            "<th>Tên</th>" +
+            "<th>Lớp</th>" +
+            "<th>Email</th>" +
+            "<th>Ngày tháng năm sinh</th>" +
+            "</tr>"
+    for (let i = 0; i < arr.length; i++) {
+      table += "<tr>" +
+              "<td>" + "HV-" + arr[i].id + "</td>" +
+              "<td>" + arr[i].name + "</td>" +
+              "<td>" + "C0" + arr[i].clasroom + "23G1" + "</td>" +
+              "<td>" + arr[i].email + "</td>" +
+              "<td>" + arr[i].birthday + "</td>" +
+              "</tr>"
+    }
+    // table+="</table>"
+    document.getElementById("display").innerHTML = table;
+  }
+
+  function addStudent() {
+    let lastId = studen[0].id
+    let newId = lastId + 1
+
+    let newName
+    do {
+      newName = prompt("Nhập tên học viên");
+      if (isNaN(newName) === true && newName.length < 50 && newName.length > 1) {
+        break;
+      } else {
+        alert("Nhập lại tên học viên vui lòng nhập dưới 50 kí tự và không được bỏ trống");
+      }
+    } while (true)
+    let newClasroom
+    do {
+      newClasroom = prompt("Nhập tháng bạn vào trung tâm");
+      if (isNaN(newClasroom) === false && newClasroom > 0 && newClasroom < 13) {
+        break;
+      } else {
+        alert("Vui lòng nhập lại tháng bạn vào");
+      }
+    } while (true)
+    let newEmail = prompt("Nhập email của học viên");
+    let newBirthday
+    do {
+      newBirthday = prompt("Nhập ngày tháng năm sinh cảu bạn vào:");
+      let teamp = newBirthday.split("/");
+      if (teamp[0] < 32 && teamp[0] > 0 && teamp[1] < 13 && teamp[1] > 0 && teamp[2] < 2024 && teamp[2] > 0) {
+        break;
+      } else {
+        alert("Nhập lại ngày tháng năm sinh cho đúng định dạng dd/mm/yyyy");
+      }
+      newBirthday = teamp.join("/");
+    } while (true)
+    let newStudent = new student(newId, newName, newClasroom, newEmail, newBirthday);
+    studen.unshift(newStudent);
+    display(studen);
+  }
+
+  function editStudent() {
+    let editId = +prompt("Nhập id cần sửa");
+    let count = 0;
+    for (let i = 0; i < studen.length; i++) {
+      if (editId === studen[i].id) {
+        do {
+          studen[i].name = prompt("Nhập lại tên của bạn muốn sửa thành ");
+          if (isNaN(studen[i].name) === true && studen[i].name.length > 0 && studen[i].name.length < 50) {
+            break;
+          } else {
+            alert("Nhập tên không đúng yêu cầu vui lòng nhập lại.");
+          }
+        } while (true)
+        do {
+          studen[i].clasroom = prompt("Nhập lại tháng mà bạn vào trung tâm.");
+          if (isNaN(studen[i].clasroom) === false && studen[i].clasroom > 0 && studen[i].clasroom < 13) {
+            break;
+          } else {
+            alert("Vui lòng nhập lại tháng");
+          }
+        } while (true)
+        studen[i].email = prompt("Nhập lại email bạn cần sửa");
+        do {
+          studen[i].birthday = +prompt("Nhập lại ngày tháng năm sinh của bạn");
+          let teamp = studen[i].birthday.split("/")
+          studen[i].birthday = teamp.join("/");
+          if (teamp[0] > 0 && teamp[0] < 32 && teamp[1] > 0 && teamp[1] < 13 && teamp[2] < 2024) {
+            break;
+          } else {
+            alert("Bạn nhập lại ngày tháng năm sinh không đúng định dạng dd//mm/yyyy");
+          }
+        } while (true)
+        count++;
+      }
+
+    }
+    if (count === 0) {
+      alert("không tìm thấy ID");
+    }
+    display(studen);
+  }
+
+</script>
+</body>
+</html>
